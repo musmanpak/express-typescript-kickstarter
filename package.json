@@ -1,0 +1,48 @@
+{
+  "name": "typescript-express-kickstarter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src",
+      "app"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start:watch": "nodemon",
+    "start": "ts-node ./src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "envalid": "^5.0.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.5",
+    "@types/express": "^4.16.1",
+    "@types/node": "^12.0.2",
+    "nodemon": "^1.19.0",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  }
+}
