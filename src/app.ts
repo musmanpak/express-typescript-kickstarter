@@ -1,11 +1,32 @@
 import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
+import mongoose from "mongoose";
 
 class App {
 
     private static connectToTheDatabase() {
-        // Connect to data base here
+        const {
+            MONGO_USER,
+            MONGO_PASSWORD,
+            MONGO_HOST,
+            MONGO_PORT,
+            MONGO_DB
+        } = process.env;
+
+        mongoose.connect(`mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}`,
+            {useNewUrlParser: true})
+            .then(
+                () => {
+                    // tslint:disable-next-line:no-console
+                    console.log("Connected to database");
+                }
+            ).catch(
+            (error) => {
+                // tslint:disable-next-line:no-console
+                console.log("Could not connect to database", error);
+            }
+        );
     }
 
     public app: express.Application;
