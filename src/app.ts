@@ -7,14 +7,14 @@ class App {
 
     private static connectToTheDatabase() {
         const {
-            MONGO_USER,
-            MONGO_PASSWORD,
-            MONGO_HOST,
-            MONGO_PORT,
-            MONGO_DB
+            DB_USER,
+            DB_PASSWORD,
+            DB_HOST,
+            DB_PORT,
+            DB_NAME
         } = process.env;
 
-        mongoose.connect(`mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}`,
+        mongoose.connect(`mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
             {useNewUrlParser: true})
             .then(
                 () => {
