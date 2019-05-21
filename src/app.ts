@@ -1,12 +1,9 @@
 import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
+import { Database } from "./database";
 
 class App {
-
-    private static connectToTheDatabase() {
-        // Connect to data base here
-    }
 
     public app: express.Application;
 
@@ -14,7 +11,7 @@ class App {
 
         this.app = express();
 
-        App.connectToTheDatabase();
+        Database.connectToTheDatabase();
         this.initializeMiddleware();
         this.initializeControllers(controllers);
     }
