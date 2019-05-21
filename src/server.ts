@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { BaseController } from "./app/base/base-controller";
+import UserController from "./app/user/user.controller";
 import validateEnv from "./utils/validateEnv";
 
 import App from "./app";
@@ -7,7 +7,7 @@ import App from "./app";
 validateEnv();
 
 const app = new App([
-    new BaseController("/")
+    new UserController()
 ]);
 
 app.listen();
